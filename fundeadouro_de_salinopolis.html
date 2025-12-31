@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+function funcao() {
+  let ano = "2025";
+  let mes = document.getElementById("mes").value;
+  let dia = document.getElementById("dia").value;
+  const data = " "+mes+dia+" ";
+ 
+  const xmlhttp = new XMLHttpRequest();
+  
+  xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+ 
+    if(myObj[data]==null){
+  document.getElementById("linha1").innerHTML = "Data inválida!";
+  document.getElementById("linha2").innerHTML = "";
+  document.getElementById("linha3").innerHTML = "";
+  document.getElementById("linha4").innerHTML = "";
+  document.getElementById("linha5").innerHTML = "";
+  document.getElementById("linha6").innerHTML = "";
+  document.getElementById("linha7").innerHTML = "";
+  document.getElementById("linha8").innerHTML = "";
+    }
+    
+  document.getElementById("linha1").innerHTML = myObj[data][0];
+  document.getElementById("linha2").innerHTML = myObj[data][1];
+  document.getElementById("linha3").innerHTML = myObj[data][2];
+  if ( myObj[data][3] ){ document.getElementById("linha4").innerHTML = myObj[data][3];}
+  if ( myObj[data][4] ){ document.getElementById("linha5").innerHTML = myObj[data][4];}
+  if ( myObj[data][5] ){ document.getElementById("linha6").innerHTML = myObj[data][5];}
+  if ( myObj[data][6] ){ document.getElementById("linha7").innerHTML = myObj[data][6];}
+  if ( myObj[data][7] ){ document.getElementById("linha8").innerHTML = myObj[data][7];}  
+}
+xmlhttp.open("GET", "fundeadouro_de_salinopolis.json");
+xmlhttp.send();
+}  
+</script>
+</head>
+<body>
+  <h1>Fundeadouro de Salinópolis 2025</h1>
+<form>
+Selecione o mês desejado: 
+<select id="mes">
+  <option>JANEIRO</option>
+  <option>FEVEREIRO</option>
+  <option>MARÇO</option>
+  <option>ABRIL</option>
+  <option>MAIO</option>
+  <option>JUNHO</option>
+  <option>JULHO</option>
+  <option>AGOSTO</option>
+  <option>SETEMBRO</option>
+  <option>OUTUBRO</option>
+  <option>NOVEMBRO</option>
+  <option>DEZEMBRO</option>
+</select>
+<br><br>
+Selecione o dia desejado: 
+<select id="dia">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+  <option>10</option>
+  <option>11</option>
+  <option>12</option>
+  <option>13</option>
+  <option>14</option>
+  <option>15</option>
+  <option>16</option>
+  <option>17</option>
+  <option>18</option>
+  <option>19</option>
+  <option>20</option>
+  <option>21</option>
+  <option>22</option>
+  <option>23</option>
+  <option>24</option>
+  <option>25</option>
+  <option>26</option>
+  <option>27</option>
+  <option>28</option>
+  <option>29</option>
+  <option>30</option>
+  <option>31</option>
+</select>
+
+<input type="button" onclick="funcao()" value="OK">
+</form>
+
+<p id="linha1"></p>
+<p id="linha2"></p>
+<p id="linha3"></p>
+<p id="linha4"></p>
+<p id="linha5"></p>
+<p id="linha6"></p>
+<p id="linha7"></p>
+<p id="linha8"></p>
+
+</body>
+</html>
